@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Student Well-Being — Advanced</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Mental Well-Being</h1>
+
+    <section class="card">
+      <h2>Mood Tracker</h2>
+      <div class="row">
+        <select id="moodSelect">
+          <option value="Happy">Happy</option>
+          <option value="Neutral">Neutral</option>
+          <option value="Stressed">Stressed</option>
+          <option value="Sad">Sad</option>
+          <option value="Excited">Excited</option>
+        </select>
+
+        <label class="slider-label">Intensity:
+          <input id="intensity" type="range" min="1" max="10" value="6">
+          <span id="intVal">6</span>
+        </label>
+
+        <button id="saveBtn">Save Mood</button>
+      </div>
+
+      <p id="saveMsg" class="muted"></p>
+
+      <div class="history">
+        <h3>History</h3>
+        <table id="historyTable">
+          <thead><tr><th>Time</th><th>Mood</th><th>Intensity</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="history-actions">
+          <button id="clearAll">Clear All</button>
+          <button id="exportCSV">Export CSV</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Mood Trend</h2>
+      <canvas id="moodChart" height="120"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>Motivation & Relax</h2>
+      <div class="row">
+        <button id="quoteBtn">Get Motivational Quote</button>
+        <p id="quoteText" class="quote">Click "Get Motivational Quote".</p>
+      </div>
+      <div class="row">
+        <button id="relaxBtn">Open Relaxation Guide</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Relaxation Modal -->
+  <div id="relaxModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>4-4-4 Breathing Exercise</h3>
+      <div class="breath-circle" id="breathCircle"></div>
+      <p id="breathText">Click Start</p>
+      <div class="modal-actions">
+        <button id="startBreath">Start</button>
+        <button id="stopBreath">Stop</button>
+        <button id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
